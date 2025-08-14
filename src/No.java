@@ -2,24 +2,24 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class No {
-    int valor; //valor
-    No esquerdo, direito; //esquerdo e direito
+    int valor;
+    No esquerdo, direito;
 
-    No(int v) { //construtor
-        this.valor = v;
+    No(int valor) {
+        this.valor = valor;
     }
 
     public class Arvore {
-        public void percorreArvore(No raiz) {
+        public void percursoEmNivel(No raiz) {
 
-            Queue<No> listaNivelada = new LinkedList<No>();
+            Queue<No> filaDeNos = new LinkedList<No>();
             if (raiz != null) {
-                listaNivelada.add(raiz); //adiciona a raíz na lista
-                while (!listaNivelada.isEmpty()) {
-                    No t = listaNivelada.poll();
-                    System.out.println(t.valor + " ");
-                    if (t.esquerdo != null)  listaNivelada.add(t.esquerdo);
-                    if (t.direito != null)  listaNivelada.add(t.direito);
+                filaDeNos.add(raiz);
+                while (!filaDeNos.isEmpty()) {
+                    No atual = filaDeNos.poll();
+                    System.out.println(atual.valor + " ");
+                    if (atual.esquerdo != null)  filaDeNos.add(atual.esquerdo);
+                    if (atual.direito != null)  filaDeNos.add(atual.direito);
                     }
                 }
             }
