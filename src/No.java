@@ -1,29 +1,27 @@
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
 
 public class No {
-    int v;
-    No e, d;
+    int valor; //valor
+    No esquerdo, direito; //esquerdo e direito
 
-    No(int v) {
-        this.v = v;
+    No(int v) { //construtor
+        this.valor = v;
     }
 
     public class Arvore {
-        public void perc(No r) {
+        public void percorreArvore(No raiz) {
 
-            Queue<No> q = new LinkedList<No>();
-            if (r != null) {
-                q.add(r);
-                while (!q.isEmpty()) {
-                    No t = q.poll();
-                    System.out.println(t.v + " ");
-                    if (t.e != null)  q.add(t.e);
-                    if (t.d != null)  q.add(t.d);
+            Queue<No> listaNivelada = new LinkedList<No>();
+            if (raiz != null) {
+                listaNivelada.add(raiz); //adiciona a raíz na lista
+                while (!listaNivelada.isEmpty()) {
+                    No t = listaNivelada.poll();
+                    System.out.println(t.valor + " ");
+                    if (t.esquerdo != null)  listaNivelada.add(t.esquerdo);
+                    if (t.direito != null)  listaNivelada.add(t.direito);
                     }
                 }
             }
         }
     }
-
